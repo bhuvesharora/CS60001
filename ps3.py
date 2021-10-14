@@ -91,7 +91,14 @@ def get_word_score(word, n):
     n: int >= 0
     returns: int >= 0
     """
-
+    if len(word)==0:
+        return 0
+    else:
+        firstcomp=1
+        secondcomp=(7*len(word))-3*(n-len(word))
+        for char in word.lower():
+            firstcomp=firstcomp*(SCRABBLE_LETTER_VALUES[char])
+        return firstcomp*(max(secondcomp, 1))
 #
 # Make sure you understand how this function works and what it does!
 #
